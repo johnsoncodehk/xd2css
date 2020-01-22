@@ -84,14 +84,36 @@ function update() {
         let rotation = 0;
 
         if (useSize.checked) {
-            width = rect.width;
-            height = rect.height;
+            if (rect.width !== undefined && rect.height !== undefined) {
+                width = rect.width;
+                height = rect.height;
+            }
+            else if (rect.localBounds !== undefined) {
+                width = rect.localBounds.width;
+                height = rect.localBounds.height;
+            }
+            else {
+                output.innerHTML = "[Error] Can't get width, height";
+                return;
+            }
         }
         if (useRotation.checked) {
-            rotation = rect.rotation;
+            if (rect.rotation !== undefined) {
+                rotation = rect.rotation;
+            }
+            else {
+                output.innerHTML = "[Error] Can't get rotation";
+                return;
+            }
         }
         if (useOpacity.checked) {
-            opacity = rect.opacity;
+            if (rect.opacity !== undefined) {
+                opacity = rect.opacity;
+            }
+            else {
+                output.innerHTML = "[Error] Can't get opacity";
+                return;
+            }
         }
 
         const result = convert(fill.startX, fill.startY, fill.endX, fill.endY, fill.colorStops, width, height, opacity, rotation);
