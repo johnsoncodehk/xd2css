@@ -1,0 +1,16 @@
+{
+  "name": "xd2css",
+  "host": {
+    "app": "XD",
+    "minVersion": "21.0"
+  },
+  "id": "f2667c98",
+  "uiEntryPoints": [
+    {
+      "label": "Panel",
+      "type": "panel",
+      "panelId": "mainPanel"
+    }
+  ],
+  "version": "0.1"
+}
